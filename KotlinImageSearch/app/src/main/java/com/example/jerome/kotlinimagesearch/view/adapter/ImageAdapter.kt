@@ -30,6 +30,6 @@ class ImageAdapter : BaseGridAdapter() {
 
     fun addImages(documents: List<Document>) {
         this.documents.addAll(documents)
-        notifyDataSetChanged()
+        notifyItemRangeInserted(this.documents.size-documents.size, documents.size)
     }
 }
