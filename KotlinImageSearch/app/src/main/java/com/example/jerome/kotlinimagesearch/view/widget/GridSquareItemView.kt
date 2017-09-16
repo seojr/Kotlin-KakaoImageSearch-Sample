@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.widget.LinearLayout
 
 
-class GridItemView: LinearLayout {
+class GridSquareItemView : LinearLayout {
 
     constructor(context: Context?) : super(context)
 
