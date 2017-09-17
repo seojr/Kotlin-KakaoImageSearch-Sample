@@ -7,7 +7,7 @@ import android.support.v7.widget.SearchView
 import android.view.*
 import com.example.jerome.kotlinimagesearch.R
 import com.example.jerome.kotlinimagesearch.di.component.ApplicationComponent
-import com.example.jerome.kotlinimagesearch.model.Document
+import com.example.jerome.kotlinimagesearch.model.Image
 import com.example.jerome.kotlinimagesearch.presenter.SearchPresenter
 import com.example.jerome.kotlinimagesearch.view.adapter.ImageAdapter
 import com.example.jerome.kotlinimagesearch.view.listener.SimpleOnQueryTextListener
@@ -58,11 +58,11 @@ class SearchFragment : BaseFragment() {
         }
     }
 
-    fun setImages(images: List<Document>) {
+    fun setImages(images: List<Image>) {
         imageAdapter.setImages(images)
     }
 
-    fun addImages(images: List<Document>) {
+    fun addImages(images: List<Image>) {
         imageAdapter.addImages(images)
     }
 

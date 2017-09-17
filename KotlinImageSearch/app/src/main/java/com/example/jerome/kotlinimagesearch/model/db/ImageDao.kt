@@ -3,15 +3,15 @@ package com.example.jerome.kotlinimagesearch.model.db
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
-import com.example.jerome.kotlinimagesearch.model.Document
+import com.example.jerome.kotlinimagesearch.model.Image
 
 @Dao
-interface DocumentDao {
+interface ImageDao {
 
     @Insert
-    fun saveImage(image: Document)
+    fun saveImage(image: Image)
 
     @Query("SELECT * FROM images")
-    fun getImages(): List<Document>
+    fun getImages(): List<Image>
 
 }

@@ -2,24 +2,24 @@ package com.example.jerome.kotlinimagesearch.model.repository
 
 import android.arch.persistence.room.Room
 import android.content.Context
-import com.example.jerome.kotlinimagesearch.model.Document
+import com.example.jerome.kotlinimagesearch.model.Image
 import com.example.jerome.kotlinimagesearch.model.db.AppDatabase
-import com.example.jerome.kotlinimagesearch.model.db.DocumentDao
+import com.example.jerome.kotlinimagesearch.model.db.ImageDao
 import javax.inject.Inject
 
 class ArchiveRepositoryImpl @Inject constructor(context: Context) : ArchiveRepository {
 
-    private val documentDao: DocumentDao = Room
+    private val imageDao: ImageDao = Room
             .databaseBuilder(context, AppDatabase::class.java, "imageDb")
             .build()
-            .getDocumentDao()
+            .getImageDao()
 
-    override fun saveImage(image: Document) {
-        documentDao.saveImage(image)
+    override fun saveImage(image: Image) {
+        imageDao.saveImage(image)
     }
 
-    override fun getImages(): List<Document> {
-        return documentDao.getImages()
+    override fun getImages(): List<Image> {
+        return imageDao.getImages()
     }
 
 }

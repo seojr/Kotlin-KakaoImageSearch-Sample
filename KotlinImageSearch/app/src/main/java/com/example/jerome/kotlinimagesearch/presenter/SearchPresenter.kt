@@ -25,7 +25,7 @@ class SearchPresenter @Inject constructor(var kakaoRepository: KakaoRepositoryIm
                 .subscribe({
                     this.query = query
                     page++
-                    view?.setImages(it.documents)
+                    view?.setImages(it.images)
                 }, {
                     view?.error()
                 })
@@ -42,7 +42,7 @@ class SearchPresenter @Inject constructor(var kakaoRepository: KakaoRepositoryIm
                 })
                 .subscribe({
                     page++
-                    view?.addImages(it.documents)
+                    view?.addImages(it.images)
                 }, {
                     view?.error()
                 })

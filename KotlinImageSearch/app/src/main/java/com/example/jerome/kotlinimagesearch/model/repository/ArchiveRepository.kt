@@ -1,11 +1,11 @@
 package com.example.jerome.kotlinimagesearch.model.repository
 
-import com.example.jerome.kotlinimagesearch.model.Document
+import com.example.jerome.kotlinimagesearch.model.Image
 
 interface ArchiveRepository {
 
-    fun saveImage(image: Document)
+    fun saveImage(image: Image)
 
-    fun getImages(): List<Document>
+    fun getImages(): List<Image>
 
 }
