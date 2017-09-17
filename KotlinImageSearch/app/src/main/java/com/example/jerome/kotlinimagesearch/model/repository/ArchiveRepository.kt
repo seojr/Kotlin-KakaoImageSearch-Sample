@@ -10,4 +10,6 @@ interface ArchiveRepository {
 
     fun getImages(): Single<List<Image>>
 
+    fun deleteImage(image: Image): Completable
+
 }

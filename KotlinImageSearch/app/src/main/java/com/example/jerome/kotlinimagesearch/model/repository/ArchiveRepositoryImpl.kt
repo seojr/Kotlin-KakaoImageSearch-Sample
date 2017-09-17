@@ -25,4 +25,10 @@ class ArchiveRepositoryImpl @Inject constructor(context: Context) : ArchiveRepos
     }
 
     override fun getImages(): Single<List<Image>> = imageDao.getImages()
+
+    override fun deleteImage(image: Image): Completable {
+        return CompletableFromAction(Action {
+            imageDao.deleteImage(image)
+        })
+    }
 }

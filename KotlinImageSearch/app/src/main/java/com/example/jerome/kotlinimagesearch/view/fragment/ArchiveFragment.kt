@@ -1,6 +1,7 @@
 package com.example.jerome.kotlinimagesearch.view.fragment
 
 import com.example.jerome.kotlinimagesearch.di.component.ApplicationComponent
+import com.example.jerome.kotlinimagesearch.model.Image
 import com.example.jerome.kotlinimagesearch.presenter.ArchivePresenter
 import javax.inject.Inject
 
@@ -15,6 +16,10 @@ class ArchiveFragment : BaseGridFragment() {
 
     override fun initView() {
         presenter.loadImages()
+    }
+
+    override fun onItemClick(image: Image, position: Int) {
+        presenter.deleteImage(image, position)
     }
 
 }

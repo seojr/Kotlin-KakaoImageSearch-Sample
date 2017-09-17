@@ -66,6 +66,10 @@ abstract class BaseGridFragment : BaseFragment() {
         imageAdapter.addImages(images)
     }
 
+    fun removeImage(position: Int) {
+        imageAdapter.removeImage(position)
+    }
+
     fun showLoading() {
         progress.visibility = View.VISIBLE
     }

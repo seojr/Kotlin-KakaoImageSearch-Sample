@@ -1,5 +1,6 @@
 package com.example.jerome.kotlinimagesearch.presenter
 
+import com.example.jerome.kotlinimagesearch.model.Image
 import com.example.jerome.kotlinimagesearch.model.repository.ArchiveRepositoryImpl
 import com.example.jerome.kotlinimagesearch.view.fragment.ArchiveFragment
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -31,6 +32,19 @@ class ArchivePresenter @Inject constructor(private var archiveRepository: Archiv
     private fun hideLoading() {
         loading = false
         view?.hideLoading()
+    }
+
+    fun deleteImage(image: Image, position: Int) {
+        archiveRepository.deleteImage(image)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe{ showLoading() }
+                .doOnComplete{ hideLoading() }
+                .subscribe ({
+                    view?.removeImage(position)
+                }, {
+                    // error
+                })
     }
 
 }

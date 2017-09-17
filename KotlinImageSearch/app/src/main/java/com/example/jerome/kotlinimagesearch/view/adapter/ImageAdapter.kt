@@ -30,4 +30,9 @@ class ImageAdapter : BaseGridAdapter<Image>() {
         this.items.addAll(documents)
         notifyItemRangeInserted(this.items.size-documents.size, documents.size)
     }
+
+    fun removeImage(position: Int) {
+        this.items.removeAt(position)
+        notifyItemRemoved(position)
+    }
 }
