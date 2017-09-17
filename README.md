@@ -1,6 +1,6 @@
 ### Kakao 이미지 검색 샘플
 
-Kotlin, MVP, Dagger2, Retrofit
+Kotlin, MVP, Dagger2, Retrofit, Glide, Room db
 
 ### 빌드 방법
 
