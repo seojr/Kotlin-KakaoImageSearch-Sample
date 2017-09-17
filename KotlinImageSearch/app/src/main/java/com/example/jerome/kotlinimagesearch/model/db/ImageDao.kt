@@ -4,6 +4,7 @@ import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
 import com.example.jerome.kotlinimagesearch.model.Image
+import io.reactivex.Single
 
 @Dao
 interface ImageDao {
@@ -12,6 +13,6 @@ interface ImageDao {
     fun saveImage(image: Image)
 
     @Query("SELECT * FROM images")
-    fun getImages(): List<Image>
+    fun getImages(): Single<List<Image>>
 
 }

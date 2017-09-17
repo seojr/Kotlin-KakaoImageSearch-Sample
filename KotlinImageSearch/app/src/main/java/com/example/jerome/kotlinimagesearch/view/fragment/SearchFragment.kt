@@ -1,10 +1,10 @@
 package com.example.jerome.kotlinimagesearch.view.fragment
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.SearchView
 import android.view.*
+import android.widget.Toast
 import com.example.jerome.kotlinimagesearch.R
 import com.example.jerome.kotlinimagesearch.di.component.ApplicationComponent
 import com.example.jerome.kotlinimagesearch.model.Image
@@ -50,7 +50,10 @@ class SearchFragment : BaseFragment() {
             layoutManager = GridLayoutManager(context, GRID_SPAN_COUNT)
             imageAdapter = ImageAdapter()
             adapter = imageAdapter
-            setReachedBottomListener(object: SimpleRecyclerView.ReachedBottomListener {
+            imageAdapter.onClickListener = { image: Image, _: Int ->
+                presenter.saveImage(image)
+            }
+            setReachedBottomListener(object : SimpleRecyclerView.ReachedBottomListener {
                 override fun onBottomReached() {
                     presenter.searchMore()
                 }
@@ -75,7 +78,7 @@ class SearchFragment : BaseFragment() {
     }
 
     fun error() {
-        Snackbar.make(recyclerView, "에러 발생", Snackbar.LENGTH_SHORT).show()
+        Toast.makeText(activity, "에러 발생", Toast.LENGTH_SHORT).show()
     }
 
 }

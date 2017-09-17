@@ -5,6 +5,10 @@ import android.content.Context
 import com.example.jerome.kotlinimagesearch.model.Image
 import com.example.jerome.kotlinimagesearch.model.db.AppDatabase
 import com.example.jerome.kotlinimagesearch.model.db.ImageDao
+import io.reactivex.Completable
+import io.reactivex.Single
+import io.reactivex.functions.Action
+import io.reactivex.internal.operators.completable.CompletableFromAction
 import javax.inject.Inject
 
 class ArchiveRepositoryImpl @Inject constructor(context: Context) : ArchiveRepository {
@@ -14,12 +18,11 @@ class ArchiveRepositoryImpl @Inject constructor(context: Context) : ArchiveRepos
             .build()
             .getImageDao()
 
-    override fun saveImage(image: Image) {
-        imageDao.saveImage(image)
+    override fun saveImage(image: Image): Completable {
+        return CompletableFromAction(Action {
+            imageDao.saveImage(image)
+        })
     }
 
-    override fun getImages(): List<Image> {
-        return imageDao.getImages()
-    }
-
+    override fun getImages(): Single<List<Image>> = imageDao.getImages()
 }
