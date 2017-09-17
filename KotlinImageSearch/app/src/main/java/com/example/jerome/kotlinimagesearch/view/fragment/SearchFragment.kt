@@ -32,6 +32,11 @@ class SearchFragment : BaseGridFragment() {
         })
     }
 
+    override fun initView() {
+        // default search
+        presenter.searchImage("메이웨더")
+    }
+
     override fun onItemClick(image: Image, position: Int) {
         presenter.saveImage(image)
     }
