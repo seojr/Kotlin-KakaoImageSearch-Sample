@@ -56,4 +56,9 @@ dependencies {
     /** Rx */
     implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+
+    /** Room */
+    implementation "android.arch.persistence.room:runtime:$persistenceVersion"
+    implementation "android.arch.persistence.room:rxjava2:$persistenceVersion"
+    kapt "android.arch.persistence.room:compiler:$persistenceVersion"
 }
