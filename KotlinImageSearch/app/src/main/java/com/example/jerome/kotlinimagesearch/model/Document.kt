@@ -1,5 +1,9 @@
 package com.example.jerome.kotlinimagesearch.model
 
+import android.arch.persistence.room.Dao
+import android.arch.persistence.room.PrimaryKey
+
+@Dao
 data class Document(var collection: String,
                     var thumbnailUrl: String,
                     var imageUrl: String,
@@ -7,4 +11,9 @@ data class Document(var collection: String,
                     var height: Int,
                     var displaySitename: String,
                     var docUrl: String,
-                    var datetime: String)
+                    var datetime: String) {
+
+    @PrimaryKey(autoGenerate = true)
+    var uid: Long = 0
+
+}
