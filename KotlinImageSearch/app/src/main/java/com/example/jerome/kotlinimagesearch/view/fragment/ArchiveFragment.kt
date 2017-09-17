@@ -1,5 +1,9 @@
 package com.example.jerome.kotlinimagesearch.view.fragment
 
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import com.example.jerome.kotlinimagesearch.di.component.ApplicationComponent
 import com.example.jerome.kotlinimagesearch.model.Image
 import com.example.jerome.kotlinimagesearch.presenter.ArchivePresenter
@@ -16,6 +20,11 @@ class ArchiveFragment : BaseGridFragment() {
 
     override fun initView() {
         presenter.loadImages()
+        activity.registerReceiver(object: BroadcastReceiver() {
+            override fun onReceive(p0: Context?, p1: Intent?) {
+                presenter.loadImages()
+            }
+        }, IntentFilter(ACTION_SAVED_IMAGE))
     }
 
     override fun onItemClick(image: Image, position: Int) {

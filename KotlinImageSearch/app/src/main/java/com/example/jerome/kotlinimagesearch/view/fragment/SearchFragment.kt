@@ -1,5 +1,6 @@
 package com.example.jerome.kotlinimagesearch.view.fragment
 
+import android.content.Intent
 import android.support.v7.widget.SearchView
 import android.view.Menu
 import android.view.MenuInflater
@@ -37,6 +38,10 @@ class SearchFragment : BaseGridFragment() {
 
     override fun onBottomReached() {
         presenter.searchMore()
+    }
+
+    fun notifySavedImage() {
+        activity.sendBroadcast(Intent(ACTION_SAVED_IMAGE))
     }
 
 }

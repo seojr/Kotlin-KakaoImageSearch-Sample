@@ -53,6 +53,7 @@ class SearchPresenter @Inject constructor(private var kakaoRepository: KakaoRepo
                 .doOnComplete { hideLoading() }
                 .subscribe({
                     Toast.makeText(view?.activity, "저장 성공", Toast.LENGTH_SHORT).show()
+                    view?.notifySavedImage()
                 }, {
                     Toast.makeText(view?.activity, "저장 실패", Toast.LENGTH_SHORT).show()
                 })

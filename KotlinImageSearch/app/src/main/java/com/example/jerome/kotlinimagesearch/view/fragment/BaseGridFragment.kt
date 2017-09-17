@@ -16,6 +16,7 @@ abstract class BaseGridFragment : BaseFragment() {
 
     companion object {
         private const val GRID_SPAN_COUNT: Int = 3
+        const val ACTION_SAVED_IMAGE: String = "SavedImage"
     }
 
     private lateinit var imageAdapter: ImageAdapter
