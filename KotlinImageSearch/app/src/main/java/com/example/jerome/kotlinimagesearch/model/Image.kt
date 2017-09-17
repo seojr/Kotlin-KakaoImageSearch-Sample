@@ -1,9 +1,9 @@
 package com.example.jerome.kotlinimagesearch.model
 
-import android.arch.persistence.room.Dao
+import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
-@Dao
+@Entity(tableName = "images")
 data class Image(var collection: String,
                  var thumbnailUrl: String,
                  var imageUrl: String,
