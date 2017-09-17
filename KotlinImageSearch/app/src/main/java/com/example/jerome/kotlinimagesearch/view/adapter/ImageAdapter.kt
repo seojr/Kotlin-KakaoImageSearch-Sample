@@ -6,30 +6,28 @@ import com.example.jerome.kotlinimagesearch.R
 import com.example.jerome.kotlinimagesearch.model.Image
 import com.example.jerome.kotlinimagesearch.view.holder.ImageHolder
 
-class ImageAdapter : BaseGridAdapter() {
-
-    private val images: ArrayList<Image> = ArrayList()
+class ImageAdapter : BaseGridAdapter<Image>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageHolder {
         return ImageHolder(LayoutInflater.from(parent.context).inflate(R.layout.image_item, parent, false))
     }
 
-    override fun onBindViewHolder(holder: ImageHolder, position: Int) {
-        holder.bind(images[position])
+    override fun onBindHolder(holder: ImageHolder, position: Int) {
+        holder.bind(items[position])
     }
 
     override fun getItemCount(): Int {
-        return images.size
+        return items.size
     }
 
     fun setImages(documents: List<Image>) {
-        this.images.clear()
-        this.images.addAll(documents)
+        this.items.clear()
+        this.items.addAll(documents)
         notifyDataSetChanged()
     }
 
     fun addImages(documents: List<Image>) {
-        this.images.addAll(documents)
-        notifyItemRangeInserted(this.images.size-documents.size, documents.size)
+        this.items.addAll(documents)
+        notifyItemRangeInserted(this.items.size-documents.size, documents.size)
     }
 }
