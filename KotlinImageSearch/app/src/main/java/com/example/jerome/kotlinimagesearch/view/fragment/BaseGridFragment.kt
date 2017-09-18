@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.jerome.kotlinimagesearch.R
 import com.example.jerome.kotlinimagesearch.model.Image
+import com.example.jerome.kotlinimagesearch.util.extension.hide
+import com.example.jerome.kotlinimagesearch.util.extension.show
 import com.example.jerome.kotlinimagesearch.view.adapter.ImageAdapter
 import com.example.jerome.kotlinimagesearch.view.widget.SimpleRecyclerView
 import kotlinx.android.synthetic.main.view_recycler.*
@@ -72,11 +74,11 @@ abstract class BaseGridFragment : BaseFragment() {
     }
 
     fun showLoading() {
-        progress.visibility = View.VISIBLE
+        progress.show()
     }
 
     fun hideLoading() {
-        progress.visibility = View.GONE
+        progress.hide()
     }
 
     fun error() {
