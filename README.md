@@ -1,4 +1,4 @@
-### How to build?
+## How to build?
 
 To build the app:
 1. create a `gradle.properties` on root directory of project
